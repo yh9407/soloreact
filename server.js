@@ -1,15 +1,17 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const PORT = 5000;
- 
-app.get('/data',(req,res)=>{
-    const data = {
-        lastname : "dl",
-        firstname : "wlrma"
-    };
-    res.json(data);
-})
- 
-app.listen(PORT,()=>{
-    console.log(`server running on PORT ${PORT}`);
-})
+const bodyParser = require("body-parser");
+const router = require("./routes/index")(app);
+const cors = require("cors");
+const PORT = process.env.PORT || 5000;
+
+//Router 등록
+
+app.use(cors());
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.listen(PORT, () => {
+  console.log(`server running on PORT ${PORT}`);
+});
