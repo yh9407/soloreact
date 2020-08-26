@@ -25,11 +25,18 @@ const styles = (theme) => ({
     overflowX: "auto",
     minWith: 1080,
   },
+  table: {
+    marginLeft: 60,
+  },
+
   progress: {
     marigin: theme.spacing(2),
   },
   TableHead: {
     fontSize: "1.3rem",
+  },
+  TableBody: {
+    marginLeft: 50,
   },
   menu: {
     marginTop: 15,
@@ -134,7 +141,10 @@ class App extends Component {
   render() {
     const filteredComponents = (data) => {
       data = data.filter((c) => {
-        return c.name.indexOf(this.state.searchKeyword) > -1;
+        return (
+          c.name.indexOf(this.state.searchKeyword) > -1 ||
+          c.birthday.indexOf(this.state.searchKeyword) > -1
+        );
       });
       return data.map((c) => {
         return (
@@ -153,7 +163,6 @@ class App extends Component {
     };
 
     const { classes } = this.props;
-    const { customers } = this.state;
     const cellList = [
       "번호",
       "프로필 이미지",
@@ -215,7 +224,7 @@ class App extends Component {
                   })}
                 </TableRow>
               </TableHead>
-              <TableBody>
+              <TableBody >
                 {this.state.customers ? (
                   filteredComponents(this.state.customers)
                 ) : (

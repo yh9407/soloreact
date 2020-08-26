@@ -58,6 +58,7 @@ class CustomerAdd extends React.Component {
       gender: "",
       job: "",
       fileName: "",
+      open:false
     });
   };
   //react는 변화가 필요한 부분만 갱신시키는게 바람직

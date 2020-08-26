@@ -41,6 +41,9 @@ class CustomerDelete extends React.Component {
           color="secondary"
           onClick={this.handleClickOpen}
         >
+          삭제
+        </Button>
+
           <Dialog open={this.state.open} onClose={this.handleClickClose}>
             <DialogTitle onClose={this.handleClickClose}>삭제경고</DialogTitle>
             <DialogContent>
@@ -67,8 +70,8 @@ class CustomerDelete extends React.Component {
               </Button>
             </DialogActions>
           </Dialog>
-          삭제
-        </Button>
+
+
       </div>
     );
   }
